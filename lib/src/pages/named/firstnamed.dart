@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx/src/pages/normal/second.dart';
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({Key? key}) : super(key: key);
+class FirstNamedPage extends StatelessWidget {
+  const FirstNamedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('First page')),
+      appBar: AppBar(title: const Text('First named page')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Get.to(() => const SecondPage());
+                  Get.toNamed('/second');
+                  // Get.offNamed('/second');
+                  // 그 전 페이지를 지우고 넘어갈 수 있다.
                 },
                 child: const Text('다음페이지 이동'))
           ],

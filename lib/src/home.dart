@@ -15,16 +15,26 @@ class Home extends StatelessWidget {
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const FirstPage()));
+                  Get.to(() => const FirstPage());
                 },
                 child: const Text('일반적인 라우트')),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(const FirstPage());
+                  Get.toNamed("/first");
                 },
-                child: const Text('getX')),
+                child: const Text('named 라우트')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.toNamed("/next", arguments: User(name: '이름', age: 32));
+                },
+                child: const Text('Arguments 전달')),
           ]),
         ));
   }
+}
+
+class User {
+  late String name;
+  late int age;
+  User({required this.name, age});
 }
